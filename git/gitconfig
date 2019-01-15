@@ -1,0 +1,16 @@
+[user]
+	name = Truong Hoang
+	email = [...]
+
+[alias]
+    co = checkout
+    st = status
+    publish = !git checkout -b $1 && git push -u origin
+    cm = !git add -A && git commit --amend
+    p = pull
+    pr = pull --rebase
+    sp = stash pop
+    lg = log
+    unstage = reset HEAD~
+    nuke = !sh -c 'git branch -D $1 && git push origin :$1' -
+    rc = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
