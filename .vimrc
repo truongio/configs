@@ -20,4 +20,4 @@ syntax enable
 map <space> /
 map <c-space> ?
 map 0 ^
-
+set timeoutlen=200
