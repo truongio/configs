@@ -12,6 +12,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources={} 
 let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips'] 
