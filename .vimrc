@@ -40,7 +40,7 @@ syntax enable
 map <space> /
 map <c-space> ?
 map 0 ^
-map <F7> gg=G<C-o><C-o>
+map <F8> gg=G<C-o><C-o>
 set expandtab
 set smarttab
 set shiftwidth=4
