@@ -28,6 +28,7 @@ bindkey '^ ' autosuggest-accept
 alias gitconfig='code-insiders ~/.gitconfig'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias kittyconf='vim ~/.config/kitty/kitty.conf'
 alias st='git status'
 alias co='git checkout'
 alias pr='git pull --rebase'
