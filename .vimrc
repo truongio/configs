@@ -19,13 +19,13 @@ let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips'
 let g:deoplete#omni#input_patterns={} 
 let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 call plug#end()
-  
+ 
 set relativenumber
-inoremap jj <Esc>
+inoremap jk <Esc>
 noremap j h
 noremap k j
 noremap l k
-noremap ö l
+noremap ; l
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
