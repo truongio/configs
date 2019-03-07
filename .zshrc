@@ -20,12 +20,8 @@ kitty + complete setup zsh | source /dev/stdin
 # z-jump
 . /Users/truong/z/z.sh
 
-# Auto suggestion
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
-
 # Aliases
-alias gitconfig='code-insiders ~/.gitconfig'
+alias gitconfig='vim  ~/.gitconfig'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias kittyconf='vim ~/.config/kitty/kitty.conf'
@@ -66,4 +62,8 @@ source /Users/truong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# Auto suggestion
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
 

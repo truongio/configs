@@ -21,7 +21,6 @@ let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 call plug#end()
  
 set relativenumber
-inoremap jk <Esc>
 noremap j h
 noremap k j
 noremap l k
