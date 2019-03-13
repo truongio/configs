@@ -66,4 +66,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # Auto suggestion
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
+bindkey '^F' autosuggest-accept
+
 
