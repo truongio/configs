@@ -34,6 +34,7 @@ alias diff='git diff'
 alias code="code-insiders"
 alias uuid="python3 -c \"import uuid; print(uuid.uuid4(), end='')\" | pbcopy"
 alias ssn='python3 ~/scripts/ssngenerator.py | pbcopy'
+alias vimf='vim $(fzf)'
 
 encryptfile() {
     openssl enc -aes-256-cbc -a -salt -in $1 -out $2.enc
@@ -51,6 +52,10 @@ depod() {
     kubectl describe pod $1 | grep Image
 }
 
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/truong/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/truong/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -67,5 +72,4 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 bindkey '^F' autosuggest-accept
-
 
