@@ -5,6 +5,7 @@ Plug 'natebosch/vim-lsc'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'elixir-editors/vim-elixir'
+Plug 'vimwiki/vimwiki'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -20,9 +21,8 @@ let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips'
 let g:deoplete#omni#input_patterns={} 
 let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 call plug#end()
- 
+
 set relativenumber
-set ruler
 
 inoremap jk <Esc>
 noremap j h
@@ -49,16 +49,12 @@ set expandtab
 set smarttab
 set shiftwidth=2
 set tabstop=2
-set wrap "Wrap lines
 set ai "Auto indent
 set si "Smart indent
+set backspace=indent,eol,start
 
 set undofile
 set undodir=~/.vim/undodir
-
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:loaded_matchparen=1
 
 " Enable filetype plugins
 filetype plugin on
@@ -66,3 +62,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+
+" vimwiki
+set nocompatible

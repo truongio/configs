@@ -12,11 +12,6 @@ export KEYTIMEOUT=1
 bindkey -a j backward-char
 bindkey -a ö forward-char
 
-# Kitty
-autoload -Uz compinit
-compinit
-kitty + complete setup zsh | source /dev/stdin
-
 # z-jump
 . /Users/truong/z/z.sh
 
@@ -35,6 +30,7 @@ alias code="code-insiders"
 alias uuid="python3 -c \"import uuid; print(uuid.uuid4(), end='')\" | pbcopy"
 alias ssn='python3 ~/scripts/ssngenerator.py | pbcopy'
 alias vimf='vim $(fzf)'
+alias ssz='source ~/.zshrc'
 
 encryptfile() {
     openssl enc -aes-256-cbc -a -salt -in $1 -out $2.enc
