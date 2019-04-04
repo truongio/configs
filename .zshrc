@@ -8,7 +8,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # vi mode
-export KEYTIMEOUT=1
 bindkey -a j backward-char
 bindkey -a ö forward-char
 

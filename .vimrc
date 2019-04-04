@@ -23,6 +23,7 @@ let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 call plug#end()
 
 set relativenumber
+set ruler
 
 inoremap jk <Esc>
 noremap j h
@@ -51,7 +52,8 @@ set shiftwidth=2
 set tabstop=2
 set ai "Auto indent
 set si "Smart indent
-set backspace=indent,eol,start
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 set undofile
 set undodir=~/.vim/undodir
@@ -60,8 +62,24 @@ set undodir=~/.vim/undodir
 filetype plugin on
 filetype indent on
 
+" Fast saving
+nmap <leader>w :w!<cr>
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
 " vimwiki
 set nocompatible
+
+set wildmenu
+set showcmd
+set cmdheight=2
+set laststatus=2
+
+" Yank to end of line
+map Y y$
+
+set incsearch " search as characters are entered
+set hlsearch " highlight matches
+
+set mouse=a
