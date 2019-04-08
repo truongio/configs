@@ -26,15 +26,10 @@ set relativenumber
 set ruler
 
 inoremap jk <Esc>
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-noremap h <Nop>
 
 "First non-blank character
 map 0 ^ 
