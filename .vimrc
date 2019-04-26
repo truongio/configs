@@ -74,7 +74,4 @@ set laststatus=2
 " Yank to end of line
 map Y y$
 
-set incsearch " search as characters are entered
-set hlsearch " highlight matches
-
 set mouse=a
