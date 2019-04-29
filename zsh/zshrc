@@ -28,11 +28,11 @@ alias uuid="python3 -c \"import uuid; print(uuid.uuid4(), end='')\" | pbcopy"
 alias code="code-insiders"
 
 scalekube() {
-    kubectl scale rc $1 --replicas=0 && kubectl scale rc $1 --replicas=1
+	kubectl scale rc $1 --replicas=0 && kubectl scale rc $1 --replicas=1
 }
 
 updateimgkube() {
-    kubectl set image replicationcontroller/$1 $1=eu.gcr.io/bynk-146312/$1:$2 && kubectl scale rc $1 --replicas=0 && kubectl scale rc $1 --replicas=1
+	kubectl set image replicationcontroller/$1 $1=eu.gcr.io/bynk-146312/$1:$2 && kubectl scale rc $1 --replicas=0 && kubectl scale rc $1 --replicas=1
 }
 
 bindkey "^X^_" redo

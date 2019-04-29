@@ -1,25 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'derekwyatt/vim-scala'
-Plug 'natebosch/vim-lsc'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'elixir-editors/vim-elixir'
 Plug 'vimwiki/vimwiki'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources={} 
-let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips'] 
-let g:deoplete#omni#input_patterns={} 
-let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 call plug#end()
 
 set relativenumber

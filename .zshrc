@@ -12,7 +12,7 @@ bindkey -a j backward-char
 bindkey -a ö forward-char
 
 # z-jump
-. /Users/truong/z/z.sh
+. /Users/truongio/z/z.sh
 
 # Aliases
 alias gitconfig='vim  ~/.gitconfig'
@@ -29,6 +29,7 @@ alias code="code-insiders"
 alias uuid="python3 -c \"import uuid; print(uuid.uuid4(), end='')\" | pbcopy"
 alias ssn='python3 ~/scripts/ssngenerator.py | pbcopy'
 alias vimf='vim $(fzf)'
+alias vim='nvim'
 alias ssz='source ~/.zshrc'
 
 encryptfile() {
@@ -52,13 +53,12 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/truong/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/truong/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/truongio/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/truongio/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/truong/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/truong/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/truongio/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/truongio/google-cloud-sdk/completion.zsh.inc'; fi
 
 bindkey "^X^_" redo
-source /Users/truong/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
