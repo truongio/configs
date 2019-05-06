@@ -2,6 +2,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'elixir-editors/vim-elixir'
 Plug 'vimwiki/vimwiki'
+Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+
 call plug#end()
 
 set relativenumber
@@ -12,6 +18,8 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+vmap <C-p> y'>p
 
 "First non-blank character
 map 0 ^ 
@@ -31,6 +39,7 @@ set ai "Auto indent
 set si "Smart indent
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+let g:loaded_matchparen=1
 
 set undofile
 set undodir=~/.vim/undodir
@@ -57,3 +66,5 @@ set laststatus=2
 map Y y$
 
 set mouse=a
+
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20

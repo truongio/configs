@@ -25,7 +25,6 @@ alias pr='git pull --rebase'
 alias lg='git log'
 alias rc='git rc'
 alias diff='git diff'
-alias code="code-insiders"
 alias uuid="python3 -c \"import uuid; print(uuid.uuid4(), end='')\" | pbcopy"
 alias ssn='python3 ~/scripts/ssngenerator.py | pbcopy'
 alias vimf='vim $(fzf)'
@@ -68,3 +67,5 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 bindkey '^F' autosuggest-accept
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
