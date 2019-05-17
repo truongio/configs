@@ -43,6 +43,10 @@ redeploy() {
     kubectl scale rc $1 --replicas=0 && kubectl scale rc $1 --replicas=1
 }
 
+redeploydep() {
+    kubectl scale deployment $1 --replicas=0 && kubectl scale deployment $1 --replicas=1
+}
+
 depod() {
     kubectl describe pod $1 | grep Image
 }

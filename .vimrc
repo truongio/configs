@@ -4,16 +4,21 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'vimwiki/vimwiki'
 Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'chaoren/vim-wordmotion'
 
 " Configuration for vim-scala
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 call plug#end()
 
+set timeoutlen=200
+
 set relativenumber
 set ruler
 
-inoremap jk <Esc>
+inoremap jk <c-c>`^
+inoremap kj <c-c>`^
+
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
