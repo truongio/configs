@@ -26,6 +26,9 @@ noremap <Right> <Nop>
 
 vmap <C-p> y'>p
 
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 "First non-blank character
 map 0 ^ 
 
