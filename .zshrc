@@ -11,6 +11,8 @@ export LC_ALL=en_US.UTF-8
 bindkey -a j backward-char
 bindkey -a ö forward-char
 
+bindkey "^P" up-line-or-search
+
 # z-jump
 . /Users/truongio/z/z.sh
 
@@ -30,6 +32,11 @@ alias ssn='python3 ~/scripts/ssngenerator.py | pbcopy'
 alias vimf='vim $(fzf)'
 alias vim='nvim'
 alias ssz='source ~/.zshrc'
+alias workiorc='vim ~/.zshworkio'
+
+cleangitbranches() {
+  git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
+}
 
 encryptfile() {
     openssl enc -aes-256-cbc -a -salt -in $1 -out $2.enc
@@ -73,3 +80,7 @@ bindkey '^F' autosuggest-accept
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

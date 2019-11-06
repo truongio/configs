@@ -76,3 +76,12 @@ map Y y$
 set mouse=a
 
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>rn <Plug>(coc-rename)
+
