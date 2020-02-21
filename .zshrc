@@ -33,6 +33,7 @@ alias vimf='vim $(fzf)'
 alias vim='nvim'
 alias ssz='source ~/.zshrc'
 alias workiorc='vim ~/.zshworkio'
+alias getpods='kubectl get pods'
 
 cleangitbranches() {
   git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
@@ -56,6 +57,10 @@ redeploydep() {
 
 depod() {
     kubectl describe pod $1 | grep Image
+}
+
+kexec() {
+    kubectl exec -it $1 sh
 }
 
 # fzf
@@ -84,3 +89,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
