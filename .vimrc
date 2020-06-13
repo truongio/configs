@@ -5,6 +5,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'chaoren/vim-wordmotion'
+Plug 'ThePrimeagen/vim-be-good'
 
 " Configuration for vim-scala
 au BufRead,BufNewFile *.sbt set filetype=scala
@@ -19,6 +20,7 @@ set ruler
 inoremap jk <c-c>`^
 inoremap kj <c-c>`^
 
+inoremap <esc>   <NOP>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>

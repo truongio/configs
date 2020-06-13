@@ -149,6 +149,7 @@ alias vimf='vim $(fzf)'
 alias vim='nvim'
 alias ssz='source ~/.zshrc'
 alias workiorc='vim ~/.zshworkio'
+alias getpods='kubectl get pods'
 
 prunelocal() {
   git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
