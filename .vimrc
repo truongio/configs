@@ -1,3 +1,6 @@
+set noswapfile
+set nobackup
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'elixir-editors/vim-elixir'
