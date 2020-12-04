@@ -150,6 +150,7 @@ alias vim='nvim'
 alias ssz='source ~/.zshrc'
 alias workiorc='vim ~/.zshworkio'
 alias getpods='kubectl get pods'
+alias gb='gcloud --project=bynk-146312 builds list --limit=5'
 
 prunelocal() {
   git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
@@ -207,6 +208,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT

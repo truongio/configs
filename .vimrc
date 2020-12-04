@@ -20,10 +20,6 @@ set timeoutlen=200
 set relativenumber
 set ruler
 
-inoremap jk <c-c>`^
-inoremap kj <c-c>`^
-
-inoremap <esc>   <NOP>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
