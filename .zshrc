@@ -1,83 +1,19 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
-
-# -----------------
-# Zsh configuration
-# -----------------
-
-#
-# History
-#
-
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
-
-#
-# Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
 
 # Prompt for spelling correction of commands.
 setopt CORRECT
 
-# Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
-
 
 # --------------------
 # Module configuration
 # --------------------
 
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
-#zstyle ':zim:git' aliases-prefix 'g'
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
-
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
-
-#
-# zsh-autosuggestions
-#
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-
-#
-# zsh-syntax-highlighting
-#
-
 # Set what highlighters will be used.
 # See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# Customize the main highlighter styles.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-#typeset -A ZSH_HIGHLIGHT_STYLES
-#ZSH_HIGHLIGHT_STYLES[comment]='fg=10'
 
 # ------------------
 # Initialize modules
@@ -117,7 +53,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 [ -f .zshworkio ] && source .zshworkio
 
 # zim
-export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 # Fixes zim prompt bug with Kitty terminal
 export LANG=en_US.UTF-8
@@ -151,6 +87,7 @@ alias ssz='source ~/.zshrc'
 alias workiorc='vim ~/.zshworkio'
 alias getpods='kubectl get pods'
 alias gb='gcloud --project=bynk-146312 builds list --limit=5'
+alias notes='code /Users/truongio/truongdocs'
 
 prunelocal() {
   git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
@@ -168,12 +105,28 @@ redeploy() {
     kubectl scale rc $1 --replicas=0 && kubectl scale rc $1 --replicas=1
 }
 
-redeploydep() {
+rescale0() {
+    kubectl scale deployment $1 --replicas=0 
+}
+
+rescale1() {
     kubectl scale deployment $1 --replicas=0 && kubectl scale deployment $1 --replicas=1
+}
+
+rescale2() {
+    kubectl scale deployment $1 --replicas=0 && kubectl scale deployment $1 --replicas=2
+}
+
+rescale4() {
+    kubectl scale deployment $1 --replicas=0 && kubectl scale deployment $1 --replicas=4
 }
 
 depod() {
     kubectl describe pod $1 | grep Image
+}
+
+pf() {
+    kubectl port-forward deployment/$1 8080
 }
 
 # fzf
@@ -181,10 +134,10 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/truongio/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/truongio/google-cloud-sdk/path.zsh.inc'; fi
+ if [ -f '/Users/truongio/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/truongio/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/truongio/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/truongio/google-cloud-sdk/completion.zsh.inc'; fi
+ if [ -f '/Users/truongio/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/truongio/google-cloud-sdk/completion.zsh.inc'; fi
 
 bindkey "^X^_" redo
 
@@ -218,8 +171,9 @@ KUBE_PS1_CTX_COLOR='cyan'
 KUBE_PS1_SYMBOL_DEFAULT=''
 KUBE_PS1_SEPARATOR=''
 
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=4G -Xmx4G -Xms2G"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/truongio/.sdkman"
 [[ -s "/Users/truongio/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/truongio/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)

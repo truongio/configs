@@ -3,12 +3,10 @@ set nobackup
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'elixir-editors/vim-elixir'
 Plug 'vimwiki/vimwiki'
 Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'chaoren/vim-wordmotion'
-Plug 'ThePrimeagen/vim-be-good'
 
 " Configuration for vim-scala
 au BufRead,BufNewFile *.sbt set filetype=scala
@@ -31,7 +29,7 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 "First non-blank character
-map 0 ^ 
+"map 0 ^ 
 
 set so=7 "Space under cursor
 set ignorecase
